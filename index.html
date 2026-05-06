@@ -1,1 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="Texdcor Comércio de Tecidos - Tecidos de qualidade para criação e moda. Localizada em São Paulo, SP.">
+  <meta name="keywords" content="tecidos, comércio de tecidos, Texdcor, São Paulo, moda, tecidos finos, atacado tecidos, varejo tecidos, Vila Leopoldina">
+  <meta name="author" content="Texdcor">
+  <title>Texdcor • Comércio de Tecidos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts para um toque elegante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cor-primaria: #7B435B;
+      --cor-primaria-escura: #5A2D41;
+      --cor-dourado: #C69C6D;
+      --cor-dourado-claro: #E7CEA6;
+      --cor-fundo: #FEF9F4;
+      --cor-texto: #3E2C2A;
+      --cor-marrom-claro: #6B5344;
+      --cor-branco-suave: #FFFBF7;
+      --fonte-titulos: 'Playfair Display', serif;
+      --fonte-corpo: 'Raleway', sans-serif;
+      --sombra-suave: 0 10px 30px rgba(0,0,0,0.08);
+      --sombra-media: 0 15px 40px rgba(0,0,0,0.12);
+      --borda-arredondada: 20px;
+    }
 
+    body {
+      font-family: var(--fonte-corpo);
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--fonte-titulos);
+      font-weight: 600;
+    }
+
+    /* Navbar personalizada */
+    .navbar {
+      background: rgba(254, 249, 244, 0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(254, 249, 244, 0.98);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-family: var(--fonte-titulos);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cor-primaria) !important;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .navbar-brand span {
+      font-size: 2rem;
+    }
+    .navbar-nav .nav-link {
+      color: var(--cor-texto) !important;
+      font-weight: 500;
+      margin: 0 5px;
+      transition: color 0.3s, border-bottom 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--cor-primaria) !important;
+      border-bottom: 2px solid var(--cor-dourado);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(123,67,91,0.7) 0%, rgba(90,45,65,0.8) 100%),
+                  url('https://images.unsplash.com/photo-1603380353725-f8a1219e6b9e?w=1200') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding-top: 80px;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(198,156,109,0.2) 0%, transparent 60%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+      line-height: 1.2;
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin: 25px 0 35px;
+      text-shadow: 1px 2px 5px rgba(0,0,0,0.2);
+    }
+    .btn-hero {
+      background: var(--cor-dourado);
+      border: none;
+      color: #3E2C2A;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: all 0.4s;
+      box-shadow: 0 8px 20px rgba(198,156,109,0.4);
+      text-transform: uppercase;
+    }
+    .btn-hero:hover {
+      background: #e0b585;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(198,156,109,0.6);
+      color: #2c1f1c;
+    }
+
+    /* Seções */
+    .section-padding {
+      padding: 90px 0;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .section-title h2 {
+      font-size: 2.8rem;
+      color: var(--cor-primaria);
+      display: inline-block;
+      position: relative;
+      font-weight: 700;
+    }
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--cor-dourado);
+      border-radius: 2px;
+    }
+    .section-title p {
+      color: var(--cor-marrom-claro);
+      font-size: 1.1rem;
+      margin-top: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Cards de diferenciais */
+    .card-diferencial {
+      background: white;
+      border: none;
+      border-radius: var(--borda-arredondada);
+      box-shadow: var(--sombra-suave);
+      padding: 35px 25px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      background: linear-gradient(145deg, #ffffff 0%, #fdf8f2 100%);
+    }
+    .card-diferencial:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--sombra-media);
+    }
+    .card-diferencial .icon-circle {
+      width: 80px;
+      height: 80px;
+      background: var(--cor-primaria);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 2.2rem;
+      color: var(--cor-dourado-claro);
+      transition: 0.3s;
+    }
+    .card-diferencial:hover .icon-circle {
+      background: var(--cor-dourado);
+      color: white;
+    }
+    .card-diferencial h5 {
+      font-family: var(--fonte-titulos);
+      color: var(--cor-primaria);
+      margin-bottom: 15px;
+    }
+
+    /* Sobre */
+    .sobre-img {
+      border-radius: var(--borda-arredondada);
+      box-shadow: var(--sombra-media);
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      max-height: 450px;
+    }
+    .info-badge {
+      background: var(--cor-dourado-claro);
+      color: var(--cor-texto);
+      padding: 8px 15px;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 5px 0;
+      font-weight: 500;
+    }
+    .info-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .info-list i {
+      color: var(--cor-dourado);
+      font-size: 1.3rem;
+      margin-top: 2px;
+    }
+
+    /* Mapa */
+    .map-container {
+      border-radius: var(--borda-arredondada);
+      overflow: hidden;
+      box-shadow: var(--sombra-media);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #2c1f1c;
+      color: #ddd;
+      padding: 50px 0 25px;
+    }
+    footer h5 {
+      color: var(--cor-dourado);
+      font-family: var(--fonte-titulos);
+      margin-bottom: 20px;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: var(--cor-dourado);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 30px;
+      padding-top: 20px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #999;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <span>🧵</span> Texdcor
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item"><a class="nav-link" href="#localizacao">Localização</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>A Essência da Moda<br>em Cada Metro</h1>
+      <p>Tecidos que aliam qualidade, textura e inovação para dar vida às suas criações.</p>
+      <a href="#diferenciais" class="btn btn-hero">Conheça Nossos Produtos</a>
+    </div>
+  </header>
+
+  <!-- Sobre -->
+  <section id="sobre" class="section-padding">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Nossa História</h2>
+        <p>Texdcor Comércio de Tecidos LTDA — tradição em construção com fios de paixão e tramas de excelência.</p>
+      </div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-right" data-aos-duration="800">
+          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600" 
+               alt="Rolos de tecido coloridos na Texdcor" 
+               class="sobre-img img-fluid">
+        </div>
+        <div class="col-lg-7" data-aos="fade-left" data-aos-duration="800">
+          <h3 class="mb-3" style="color: var(--cor-primaria);">Tecendo conexões desde 2024</h3>
+          <p class="lead">Fundada em São Paulo, a Texdcor nasceu para oferecer os melhores tecidos do mercado varejista, unindo sofisticação e atendimento personalizado.</p>
+          <ul class="list-unstyled info-list mt-4">
+            <li><i class="bi bi-building"></i> <strong>Razão Social:</strong> Texdcor Comercio de Tecidos LTDA</li>
+            <li><i class="bi bi-card-text"></i> <strong>CNPJ:</strong> 55.779.293/0001-49</li>
+            <li><i class="bi bi-journal-text"></i> <strong>Inscrição Estadual (SP):</strong> 137.900.060.118</li>
+            <li><i class="bi bi-calendar-check"></i> <strong>Fundação:</strong> 03/07/2024 <span class="info-badge ms-2" id="tempoFundacao"></span></li>
+            <li><i class="bi bi-tag-fill"></i> <strong>Atividade Principal (CNAE):</strong> 47.55-5-01 - Comércio varejista de tecidos</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>Situação Cadastral:</strong> Ativa</li>
+          </ul>
+          <blockquote class="mt-4 fst-italic" style="border-left: 4px solid var(--cor-dourado); padding-left: 20px; color: var(--cor-marrom-claro);">
+            "Cores e texturas que inspiram. O tecido certo transforma ideias em obras‑primas."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais / Serviços -->
+  <section id="diferenciais" class="section-padding" style="background: linear-gradient(180deg, #fffaf3 0%, #fef3e8 100%);">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Por que escolher a Texdcor?</h2>
+        <p>Unimos tradição têxtil com um olhar inovador para oferecer experiências únicas em cada compra.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="card-diferencial">
+            <div class="icon-circle"><i class="bi bi-palette"></i></div>
+            <h5>Variedade de Cores</h5>
+            <p>Paletas vibrantes e tons exclusivos para atender todas as tendências da moda e decoração.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="card-diferencial">
+            <div class="icon-circle"><i class="bi bi-droplet-half"></i></div>
+            <h5>Texturas Nobres</h5>
+            <p>Algodão, linho, seda e malhas especiais com acabamento impecável e toque aveludado.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card-diferencial">
+            <div class="icon-circle"><i class="bi bi-chat-heart"></i></div>
+            <h5>Atendimento Personalizado</h5>
+            <p>Equipe especializada pronta para ajudar na escolha do tecido ideal para seu projeto.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="card-diferencial">
+            <div class="icon-circle"><i class="bi bi-truck"></i></div>
+            <h5>Agilidade na Entrega</h5>
+            <p>Logística eficiente para que você receba seus tecidos no prazo combinado, em todo o Brasil.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frase inspiradora com imagem -->
+  <section style="background: linear-gradient(135deg, rgba(123,67,91,0.85) 0%, rgba(90,45,65,0.9) 100%), 
+                  url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200') center/cover no-repeat; 
+                  padding: 80px 0; text-align: center; color: white;" data-aos="fade-up">
+    <div class="container">
+      <i class="bi bi-quote" style="font-size: 3rem; color: var(--cor-dourado);"></i>
+      <h2 class="mt-3 mb-4" style="font-size: 2.5rem; font-family: var(--fonte-titulos);">Texdcor: fios de paixão,<br>tramas de excelência.</h2>
+      <p class="lead" style="font-weight: 300;">Transformando matéria‑prima em sonhos desde julho de 2024.</p>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section-padding">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Fale Conosco</h2>
+        <p>Estamos prontos para atender você e tirar todas as dúvidas.</p>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="card-diferencial p-4 text-start">
+            <h4 class="mb-4" style="color: var(--cor-primaria);"><i class="bi bi-envelope-paper me-2"></i>Envie uma mensagem</h4>
+            <form>
+              <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Seu nome completo">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" placeholder="email@exemplo.com">
+              </div>
+              <div class="mb-3">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="mensagem" rows="4" placeholder="Como podemos ajudar?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-hero w-100">Enviar</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card-diferencial p-4 h-100 text-start">
+            <h4 class="mb-4" style="color: var(--cor-primaria);"><i class="bi bi-info-circle me-2"></i>Informações de Contato</h4>
+            <ul class="list-unstyled info-list">
+              <li><i class="bi bi-telephone-fill"></i> <strong>Telefone:</strong> <a href="tel:+551130602777" style="color: var(--cor-texto); text-decoration: none;">(11) 3060-2777</a></li>
+              <li><i class="bi bi-envelope-fill"></i> <strong>E-mail:</strong> <a href="mailto:sueli@jrj.com.br" style="color: var(--cor-texto); text-decoration: none;">sueli@jrj.com.br</a></li>
+              <li><i class="bi bi-geo-alt-fill"></i> <strong>Endereço:</strong> Rua Othao, 350 - Sala 387, Vila Leopoldina, São Paulo - SP, 05313-020</li>
+              <li><i class="bi bi-clock-fill"></i> <strong>Horário comercial:</strong> Seg a Sex, 9h às 18h</li>
+            </ul>
+            <div class="mt-4 p-3" style="background: #faf3ea; border-radius: 16px;">
+              <p class="mb-0 fst-italic"><i class="bi bi-lightbulb-fill me-2" style="color: var(--cor-dourado);"></i> Dúvidas sobre tecidos, orçamentos ou parcerias? Entre em contato, será um prazer ajudar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Localização -->
+  <section id="localizacao" class="section-padding" style="background-color: #fdf8f2;">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Onde Estamos</h2>
+        <p>Visite nossa loja na Vila Leopoldina, São Paulo.</p>
+      </div>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps?q=Rua+Othao,+350+-+Vila+Leopoldina,+S%C3%A3o+Paulo+-+SP,+05313-020&output=embed"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+                    title="Mapa da localização da Texdcor"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="p-4">
+            <h3 style="color: var(--cor-primaria);">Texdcor Comércio de Tecidos LTDA</h3>
+            <p class="lead mt-3"><i class="bi bi-pin-map-fill me-2" style="color: var(--cor-dourado);"></i> <strong>Endereço completo:</strong></p>
+            <p>Rua Othao, 350 - Sala 387<br>Vila Leopoldina<br>São Paulo - SP<br>CEP: 05313-020</p>
+            <p><strong>Para correspondência:</strong><br>Texdcor Comercio de Tecidos LTDA<br>Rua Othao 350 Sala 387<br>Vila Leopoldina<br>São Paulo SP<br>05313-020</p>
+            <span class="info-badge"><i class="bi bi-check2-circle"></i> Atendimento presencial mediante agendamento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>🧵 Texdcor</h5>
+          <p>Comércio varejista de tecidos.<br>Qualidade que veste sonhos.</p>
+          <p class="small">CNPJ: 55.779.293/0001-49<br>IE: 137.900.060.118</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Links Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contato</h5>
+          <p><i class="bi bi-telephone"></i> (11) 3060-2777<br>
+             <i class="bi bi-envelope"></i> sueli@jrj.com.br</p>
+          <div class="mt-2">
+            <a href="#" class="me-3"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="#" class="me-3"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="me-3"><i class="bi bi-whatsapp fs-5"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; <span id="anoAtual"></span> Texdcor Comércio de Tecidos LTDA. Todos os direitos reservados. | 
+        Fundada em 03/07/2024 · <span id="tempoFooter"></span> de história.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Inicializar animações AOS
+    AOS.init({ once: true, offset: 100, duration: 800 });
+
+    // Navbar com efeito ao rolar
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Cálculo do tempo desde a fundação (03/07/2024)
+    function atualizarTempoFundacao() {
+      const fundacao = new Date(2024, 6, 3); // mês 6 = julho (0-indexado)
+      const hoje = new Date();
+      
+      let anos = hoje.getFullYear() - fundacao.getFullYear();
+      let meses = hoje.getMonth() - fundacao.getMonth();
+      let dias = hoje.getDate() - fundacao.getDate();
+      
+      if (dias < 0) {
+        meses--;
+        const ultimoDiaMesAnterior = new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate();
+        dias += ultimoDiaMesAnterior;
+      }
+      if (meses < 0) {
+        anos--;
+        meses += 12;
+      }
+      
+      // Formatar string
+      const partes = [];
+      if (anos > 0) partes.push(anos + (anos === 1 ? ' ano' : ' anos'));
+      if (meses > 0) partes.push(meses + (meses === 1 ? ' mês' : ' meses'));
+      if (dias > 0) partes.push(dias + (dias === 1 ? ' dia' : ' dias'));
+      
+      const tempoStr = partes.join(', ') || '0 dias';
+      
+      // Atualizar elementos
+      const elementoSobre = document.getElementById('tempoFundacao');
+      const elementoFooter = document.getElementById('tempoFooter');
+      if (elementoSobre) elementoSobre.textContent = tempoStr;
+      if (elementoFooter) elementoFooter.textContent = tempoStr;
+      
+      // Atualizar ano no footer
+      document.getElementById('anoAtual').textContent = hoje.getFullYear();
+    }
+    
+    window.addEventListener('DOMContentLoaded', atualizarTempoFundacao);
+    
+    // Fechar navbar ao clicar em link (mobile)
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse.classList.contains('show')) {
+          new bootstrap.Collapse(navbarCollapse).toggle();
+        }
+      });
+    });
+
+    // Atualizar links ativos com scroll spy simples
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section, header');
+      const navLinksAll = document.querySelectorAll('.navbar-nav .nav-link');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id') || '';
+        }
+      });
+      navLinksAll.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
